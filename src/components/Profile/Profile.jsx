@@ -1,30 +1,31 @@
 import PropTypes from 'prop-types';
+import { ProfileCard, Description, Avatar, Name, Info, StatsList, StatsItem, Label, Quantity } from './Profile.styled';
 
 export default function Profile({ username, avatar, tag, location, stats }) {
   return (
-    <div class="profile">
-      <div class="description">
-        <img src={avatar} alt="User avatar" class="avatar" />
-        <p class="name">{username}</p>
-        <p class="tag">{tag}</p>
-        <p class="location">{location}</p>
-      </div>
+    <ProfileCard>
+      <Description className="description">
+        <Avatar src={avatar} alt="User avatar" />
+        <Name>{username}</Name>
+        <Info>@{tag}</Info>
+        <Info>{location}</Info>
+      </Description>
 
-      <ul class="stats">
-        <li>
-          <span class="label">Followers</span>
-          <span class="quantity">{stats.followers}</span>
-        </li>
-        <li>
-          <span class="label">Views</span>
-          <span class="quantity">{stats.views}</span>
-        </li>
-        <li>
-          <span class="label">Likes</span>
-          <span class="quantity">{stats.likes}</span>
-        </li>
-      </ul>
-    </div>
+      <StatsList className="stats">
+        <StatsItem>
+          <Label>Followers</Label>
+          <Quantity>{stats.followers}</Quantity>
+        </StatsItem>
+        <StatsItem>
+          <Label>Views</Label>
+          <Quantity>{stats.views}</Quantity>
+        </StatsItem>
+        <StatsItem>
+          <Label>Likes</Label>
+          <Quantity>{stats.likes}</Quantity>
+        </StatsItem>
+      </StatsList>
+    </ProfileCard>
   );
 }
 

@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import FriendListItem from 'components/FriendListItem/FriendListItem';
+import { FriendListWrap } from './FriendList.styled';
 
 export default function FriendList({ friends }) {
   return (
-    <ul class="friend-list">
+    <FriendListWrap>
       {friends.map(friend => {
         return (
           <FriendListItem
@@ -14,7 +15,7 @@ export default function FriendList({ friends }) {
           />
         );
       })}
-    </ul>
+    </FriendListWrap>
   );
 }
 
